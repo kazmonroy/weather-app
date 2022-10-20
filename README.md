@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d30f68b (Edit README.md file)
 # Weather App Project
 
 This project is part of The Odin Project: JavaScript Full Stack Developer path.
 
-Helped me sharp my JavaScript skills by applying Promises in combination with async/await to fetch data and work with APIs: (Open Weather and Pexels).
+Helped me sharp my JavaScript skills by applying Promises in combination with async/await to fetch data and work with APIs. In this case I used Open Weather and Pexels APIs.
 
 In addition, went a step further to get more comfortable with SASS/SCSS.
 
@@ -20,7 +16,7 @@ In addition, went a step further to get more comfortable with SASS/SCSS.
 - VSCode
 - Git and GitHub
 - Webpack
-<<<<<<< HEAD
+  <<<<<<< HEAD
 
 ## Live preview
 
@@ -29,21 +25,3 @@ In addition, went a step further to get more comfortable with SASS/SCSS.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-=======
-# Weather App
-
-## Live preview
-
-- [Weather App](https://weather-app-0kqt.onrender.com)
->>>>>>> a121093 (Add files)
-=======
-
-## Live preview
-
-- [Weather App](https://kazmonroy.github.io/weather-app-js/)
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
->>>>>>> d30f68b (Edit README.md file)
