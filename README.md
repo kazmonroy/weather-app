@@ -19,7 +19,7 @@ In addition, went a step further to get more comfortable with SASS/SCSS.
 
 ## Live preview
 
-- [Weather App](https://kazmonroy.github.io/weather-app-js/)
+- [Weather App](https://kazmonroy.github.io/weather-app/)
 
 ## License
 
