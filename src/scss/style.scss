@@ -1,0 +1,182 @@
+@import '_colors.scss';
+
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../font/Satoshi-Variable.ttf');
+}
+
+body {
+    color: $second-color;
+    font-family: $main-font-family;
+    font-weight: 400;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+.wrapper {
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0px;
+    padding: 0px 24px;
+    position: relative;
+    border-radius: 4px;
+    
+   
+    .current-weather-card {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+
+        & > *:not(.location-bg-img) {
+            padding: 16px 0px;
+        }
+
+        .location-bg-img {
+            filter: (brightness(50%));
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .header {
+            display: flex;
+            width: 100%;
+
+            .menu {
+                align-items: center;
+                min-height: 100%;
+                display: flex;
+                padding-left: 8px;
+                cursor: pointer;
+                background: none;
+                border: none;
+                font-size: 1.2rem;
+                color: inherit;
+
+            }
+
+            .location-info {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+
+            .current-city {
+                display: flex;
+                align-items: center;
+            }
+
+            .location-icon {
+                padding-right: 8px;
+                font-size: .8rem;
+            }
+
+            .current-date {
+                font-size: .8rem;
+                padding: 4px 0px;
+            }
+
+        }
+
+        .weather-info {
+            display: flex;
+            width: 100%;
+
+
+            .weather {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+ 
+            }
+
+            .weather-icon {
+                font-size: 1.5rem;
+        
+            }
+
+
+            .extra-temp-info {
+                display: flex;
+                flex: 1;
+         
+                & > div {
+                    display: flex;
+                    align-items: center;
+                }
+                .wind p {
+                    padding-right: 16px;
+                }
+
+                .wind p , .humidity p {
+                    padding-left: 8px;
+                    font-size: .8rem;
+                }
+            }
+
+
+            .weather-temp {
+                font-size: 5rem;
+            }
+
+        }
+
+    }
+
+}
+
+form {
+    padding: 16px 0px;
+    min-width: 100%;
+
+    .input-city {
+        display: flex;
+        background-color: white;
+        border-radius: 4px;
+        padding: 4px;
+
+        input {
+            border: none;
+            font-family: inherit;
+            padding-left: 8px;
+            flex: 1;
+        }
+
+        .search-btn {
+            padding: 4px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: $main-color;
+        }
+        
+    }
+}
+
+@media (max-width: 480px) {
+
+    .wrapper {
+        min-width: 344px;
+        padding: 0px 24px;
+    }
+}
