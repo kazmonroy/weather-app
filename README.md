@@ -16,7 +16,6 @@ In addition, went a step further to get more comfortable with SASS/SCSS.
 - VSCode
 - Git and GitHub
 - Webpack
-  <<<<<<< HEAD
 
 ## Live preview
 
