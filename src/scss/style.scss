@@ -30,11 +30,16 @@ body {
     padding: 0px 24px;
     position: relative;
     border-radius: 4px;
+
+    & > * {
+        padding: 24px 0px;
+    }
     
    
     .current-weather-card {
         width: 100%;
         display: flex;
+        flex: 1;
         align-items: center;
         flex-direction: column;
         overflow: hidden;
@@ -62,7 +67,7 @@ body {
             width: 100%;
 
             .menu {
-                align-items: center;
+                align-items: flex-start;
                 min-height: 100%;
                 display: flex;
                 padding-left: 8px;
@@ -172,6 +177,43 @@ form {
     }
 }
 
+.hour-forecast-display {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 24px 0px;
+    border-top: 1px solid $second-color;
+    border-bottom: 1px solid $second-color;
+
+    .hour-forecast-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+.daily-forecast-display {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .day-forecast-card {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+
+    .day-forecast-card .day {
+        flex: 1;
+    }
+
+    .max-temp, .min-temp {
+        padding: 0px 16px;
+    }
+
+}
+
 @media (max-width: 480px) {
 
     .wrapper {
@@ -179,3 +221,4 @@ form {
         padding: 0px 24px;
     }
 }
+
