@@ -52,8 +52,9 @@ function showCurrentWeather(cityQuery) {
     let weather = document.createElement('div');
     weather.setAttribute('class', 'weather');
 
-    let weatherIcon = document.createElement('div');
+    let weatherIcon = document.createElement('img');
     weatherIcon.setAttribute('class', 'weather-icon');
+    weatherIcon.src = `http://openweathermap.org/img/wn/${json.weather[0].icon}.png`;
 
     let weatherDescription = document.createElement('div');
     weatherDescription.setAttribute('class', 'weather-descrip');
@@ -111,7 +112,6 @@ function showCurrentWeather(cityQuery) {
     currentWeatherCard.append(currentWeatherInfo);
 
     mainForecastDisplay.append(currentWeatherCard);
-    checkWeatherUI(json, weatherIcon, body);
   });
 }
 
@@ -184,16 +184,6 @@ function getDate(json) {
   let currentCityDay = `${day}, ${date} ${month}`;
 
   return currentCityDay;
-}
-
-function checkWeatherUI(json, weatherIcon) {
-  if (json.weather[0].description.includes('clouds')) {
-    weatherIcon.innerHTML = '<i class="fa-solid fa-cloud"></i>';
-  } else if (json.weather[0].description.includes('clear sky')) {
-    weatherIcon.innerHTML = '<i class="fa-solid fa-sun"></i>';
-  } else {
-    weatherIcon.innerHTML = '<i class="fa-solid fa-cloud-sun"></i>';
-  }
 }
 
 export { showCurrentWeather, createForm };

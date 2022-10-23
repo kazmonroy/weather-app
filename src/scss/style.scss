@@ -31,23 +31,24 @@ body {
     position: relative;
     border-radius: 4px;
 
-    & > * {
-        padding: 24px 0px;
-    }
+    // & > * {
+    //     padding: 24px 0px;
+    // }
 
     .main-forecast-display {
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
-      
+
+        & > * {
+            padding: 24px 0px;
+        }
     }
     
-   
     .current-weather-card {
         width: 100%;
         display: flex;
-        flex: 1;
         align-items: center;
         flex-direction: column;
         overflow: hidden;
@@ -114,7 +115,6 @@ body {
             display: flex;
             width: 100%;
 
-
             .weather {
                 display: flex;
                 flex-direction: column;
@@ -123,8 +123,8 @@ body {
             }
 
             .weather-icon {
-                font-size: 1.5rem;
-        
+                max-width: 20%;
+                height: auto;
             }
 
 
@@ -146,9 +146,9 @@ body {
                 }
             }
 
-
             .weather-temp {
                 font-size: 5rem;
+            
             }
 
         }
@@ -158,7 +158,7 @@ body {
 }
 
 form {
-    padding: 16px 0px;
+    padding: 24px 0px;
     min-width: 100%;
 
     .input-city {
@@ -181,7 +181,6 @@ form {
             background: none;
             color: $main-color;
         }
-        
     }
 }
 
