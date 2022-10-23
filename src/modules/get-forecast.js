@@ -2,7 +2,7 @@ import getCurrentweather from './get-weather';
 
 let WEATHER_API_KEY = 'a81e03c8d54e3f2e938c5105c6e861e3';
 
-export async function getHourlyForecast(cityQuery) {
+async function getHourlyForecast(cityQuery) {
   try {
     let json = await getCurrentweather(cityQuery);
 
@@ -46,23 +46,13 @@ export async function getHourlyForecast(cityQuery) {
       });
     }
 
-    // let dailyForecast = [];
-    // for (let i = 0; i < len; i++) {
-    //   dailyForecast.push({
-    //     day: days[i],
-    //     icon: icons[i],
-    //     max_temp: maxTemp[i],
-    //     min_temp: minTemp[i],
-    //   });
-    // }
-
     return hourlyForecast;
   } catch (err) {
     console.log(err);
   }
 }
 
-export async function getDailyForecast(cityQuery) {
+async function getDailyForecast(cityQuery) {
   try {
     let json = await getCurrentweather(cityQuery);
 
@@ -180,3 +170,5 @@ export async function getDailyForecast(cityQuery) {
     console.log(err);
   }
 }
+
+export { getHourlyForecast, getDailyForecast };
