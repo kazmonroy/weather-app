@@ -1,18 +1,16 @@
 import getCurrentweather from './get-weather';
 import getLocationImgBackground from './get-location-bg-img';
 
-// CURRENT WEATHER CARD
+// CURRENT WEATHER SECTION
 function showCurrentWeather(cityQuery) {
   const mainForecastDisplay = document.querySelector(
     '[data-main-forecast-display]'
   );
 
   getCurrentweather(cityQuery).then((json) => {
-    let body = document.querySelector('body');
-
-    let currentWeatherCard = document.createElement('div');
-    currentWeatherCard.setAttribute('class', 'current-weather-card');
-    currentWeatherCard.setAttribute('data-current-weather-card', '');
+    let currentWeatherSection = document.createElement('div');
+    currentWeatherSection.setAttribute('class', 'current-weather-section');
+    currentWeatherSection.setAttribute('data-current-weather-section', '');
 
     let locationBgImg = document.createElement('img');
     locationBgImg.setAttribute('class', 'location-bg-img');
@@ -89,7 +87,6 @@ function showCurrentWeather(cityQuery) {
     extraWeatherInfo.append(wind);
     extraWeatherInfo.append(humidity);
 
-    // Building card
     city.append(locationIcon);
     city.append(cityName);
 
@@ -106,12 +103,12 @@ function showCurrentWeather(cityQuery) {
     currentWeatherInfo.append(weather);
     currentWeatherInfo.append(weatherTemperature);
 
-    // CARD LAYOUT
-    currentWeatherCard.append(locationBgImg);
-    currentWeatherCard.append(header);
-    currentWeatherCard.append(currentWeatherInfo);
+    // SECTION LAYOUT
+    currentWeatherSection.append(locationBgImg);
+    currentWeatherSection.append(header);
+    currentWeatherSection.append(currentWeatherInfo);
 
-    mainForecastDisplay.append(currentWeatherCard);
+    mainForecastDisplay.append(currentWeatherSection);
   });
 }
 

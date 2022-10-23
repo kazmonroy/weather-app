@@ -23,12 +23,12 @@ function findlocalWeather() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const target = e.target.nextSibling;
+    const mainForecastDisplay = e.target.nextSibling;
 
     const queryInput = document.querySelector('[data-input-query]');
     const cityQuery = queryInput.value;
 
-    target.textContent = '';
+    mainForecastDisplay.textContent = '';
     showForecast(cityQuery);
     queryInput.value = '';
   });
@@ -86,7 +86,7 @@ function showDailyForecast(cityQuery) {
       day.textContent = weekForecast[i].day;
 
       const icon = document.createElement('img');
-      icon.src = ` http://openweathermap.org/img/wn/${weekForecast[i].icon}.png`;
+      icon.src = `http://openweathermap.org/img/wn/${weekForecast[i].icon}.png`;
 
       const maxTemp = document.createElement('div');
       maxTemp.textContent = weekForecast[i].max_temp;
