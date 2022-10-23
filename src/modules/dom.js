@@ -2,9 +2,12 @@ import getCurrentweather from './get-weather';
 import getLocationImgBackground from './get-location-bg-img';
 
 // CURRENT WEATHER CARD
-function createCurrentWeatherCard(cityQuery) {
+function showCurrentWeather(cityQuery) {
+  const mainForecastDisplay = document.querySelector(
+    '[data-main-forecast-display]'
+  );
+
   getCurrentweather(cityQuery).then((json) => {
-    let wrapper = document.querySelector('[data-wrapper]');
     let body = document.querySelector('body');
 
     let currentWeatherCard = document.createElement('div');
@@ -107,7 +110,7 @@ function createCurrentWeatherCard(cityQuery) {
     currentWeatherCard.append(header);
     currentWeatherCard.append(currentWeatherInfo);
 
-    wrapper.append(currentWeatherCard);
+    mainForecastDisplay.append(currentWeatherCard);
     checkWeatherUI(json, weatherIcon, body);
   });
 }
@@ -117,6 +120,10 @@ function createForm() {
   const wrapper = document.createElement('div');
   wrapper.setAttribute('class', 'wrapper');
   wrapper.setAttribute('data-wrapper', '');
+
+  const mainForecastDisplay = document.createElement('div');
+  mainForecastDisplay.setAttribute('class', 'main-forecast-display');
+  mainForecastDisplay.setAttribute('data-main-forecast-display', '');
 
   //   submit city form
   const form = document.createElement('form');
@@ -135,6 +142,7 @@ function createForm() {
   inputDiv.append(searchBtn);
   form.append(inputDiv);
   wrapper.append(form);
+  wrapper.append(mainForecastDisplay);
   document.body.append(wrapper);
 }
 
@@ -188,4 +196,4 @@ function checkWeatherUI(json, weatherIcon) {
   }
 }
 
-export { createCurrentWeatherCard, createForm };
+export { showCurrentWeather, createForm };

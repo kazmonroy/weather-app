@@ -1,6 +1,6 @@
 import './scss/style.scss';
 import { getHourlyForecast, getDailyForecast } from './modules/get-forecast';
-import { createCurrentWeatherCard, createForm } from './modules/dom';
+import { showCurrentWeather, createForm } from './modules/dom';
 
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
@@ -13,53 +13,38 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
 function startApp(e) {
   createForm();
-  showCurrentWeather(e);
-  createCurrentWeatherCard('Malmö');
-  showHourlyForecast('Malmö');
-  showDailyForecast('Malmö');
+  findlocalWeather(e);
+  showForecast('Malmö');
 }
 
-function showCurrentWeather() {
+function findlocalWeather() {
   const form = document.querySelector('form');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let wrapper = document.querySelector('[data-wrapper]');
 
-    const weatherCard = e.target.nextSibling;
+    const target = e.target.nextSibling;
 
     const queryInput = document.querySelector('[data-input-query]');
     const cityQuery = queryInput.value;
 
-    if (weatherCard === null) {
-      createCurrentWeatherCard(cityQuery);
-      showHourlyForecast(cityQuery);
-      showDailyForecast(cityQuery);
-    } else if (weatherCard !== null) {
-      {
-        // weatherCard.remove();
-        wrapper.children[1].remove();
-        wrapper.children[2].remove();
-        wrapper.children[3].remove();
-
-        createCurrentWeatherCard(cityQuery);
-        showHourlyForecast(cityQuery);
-        showDailyForecast(cityQuery);
-      }
-    }
-
+    target.textContent = '';
+    showForecast(cityQuery);
     queryInput.value = '';
   });
 }
 
-// function showForecast(cityQuery) {
-//   showHourlyForecast(cityQuery);
-//   showDailyForecast(cityQuery);
-// }
+function showForecast(cityQuery) {
+  showCurrentWeather(cityQuery);
+  showHourlyForecast(cityQuery);
+  showDailyForecast(cityQuery);
+}
 
 function showHourlyForecast(cityQuery) {
   getHourlyForecast(cityQuery).then((forecast) => {
-    const wrapper = document.querySelector('[data-wrapper]');
+    const mainForecastDisplay = document.querySelector(
+      '[data-main-forecast-display]'
+    );
 
     const forecastDisplay = document.createElement('div');
     forecastDisplay.setAttribute('class', 'hour-forecast-display');
@@ -80,16 +65,17 @@ function showHourlyForecast(cityQuery) {
       forecastDisplay.append(hourForecastCard);
     }
 
-    wrapper.append(forecastDisplay);
+    mainForecastDisplay.append(forecastDisplay);
   });
 }
 
 function showDailyForecast(cityQuery) {
   getDailyForecast(cityQuery).then((weekForecast) => {
-    const wrapper = document.querySelector('[data-wrapper]');
+    const mainForecastDisplay = document.querySelector(
+      '[data-main-forecast-display]'
+    );
     const dailyForecastDisplay = document.createElement('div');
     dailyForecastDisplay.setAttribute('class', 'daily-forecast-display');
-    console.log(weekForecast);
 
     for (let i = 0; i < 5; i++) {
       const dayForecastCard = document.createElement('div');
@@ -118,6 +104,6 @@ function showDailyForecast(cityQuery) {
       dailyForecastDisplay.append(dayForecastCard);
     }
 
-    wrapper.append(dailyForecastDisplay);
+    mainForecastDisplay.append(dailyForecastDisplay);
   });
 }
