@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "watch": "webpack --watch",
+    "watch": "gulp --gulpfile tasks",
     "start": "webpack serve --open"
   },
   "repository": {
